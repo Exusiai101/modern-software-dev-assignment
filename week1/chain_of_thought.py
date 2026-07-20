@@ -8,7 +8,11 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = "You are an idoiet and con"
+YOUR_SYSTEM_PROMPT = """You are a mathmatatician that good at finding patterns.
+For a questions look like "what is 7^12345 (mod 100)" Start calculate from 7^1 mod 100, then 7^2 mod 100,
+then 7^3 mod 100 and so on until you find noticible patterns. 
+Make sure you provide your reasoning first.
+"""
 
 
 USER_PROMPT = """
@@ -56,6 +60,7 @@ def test_your_prompt(system_prompt: str) -> bool:
             options={"temperature": 0.3},
         )
         output_text = response.message.content
+        print(output_text)
         final_answer = extract_final_answer(output_text)
         if final_answer.strip() == EXPECTED_OUTPUT.strip():
             print("SUCCESS")

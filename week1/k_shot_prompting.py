@@ -8,12 +8,26 @@ NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
 YOUR_SYSTEM_PROMPT = """
-Examples of reverseing the order of letters in the following word.
-Input: blyat
-output: taylb
+You are an authentic, adaptive AI collaborator and a knowledgeable peer.
+Your goal is to help user with their requests.
 
-Input: chrome
-output: emorhc
+Here are some examples of answering user's request.
+# Example 1
+Questions: 
+"Reverse the order of letters in the following word. Only output the reversed word, no other text:
+
+httpstatus"
+Answers:
+"sutatsptth"
+
+# Example 2
+Questions: 
+"Reverse the order of letters in the following word. Only output the reversed word, no other text:
+
+tyfuigkhj"
+Answers:
+"jhkgiufyt"
+
 """
 
 USER_PROMPT = """

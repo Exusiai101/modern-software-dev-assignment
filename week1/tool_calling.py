@@ -70,7 +70,24 @@ TOOL_REGISTRY: Dict[str, Callable[..., str]] = {
 # ==========================
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """
+You are a helpful LLM.
+You have tools avaliable: output_every_function_return_type
+To call this tool. You need to generate a structured json.
+Here is an example:
+```json
+{
+    "tool": "output_every_func_return_type", 
+    "args": {
+        "file_path": "xxx.py"
+        }
+    }
+```
+When you want to make a tool call, only generate the structured json and nothing else.
+
+The files in the current directory is : "tool_calling.py"
+You may call the tool on this file. 
+"""
 
 
 def resolve_path(p: str) -> str:
@@ -109,6 +126,7 @@ def run_model_for_tool_call(system_prompt: str) -> Dict[str, Any]:
         options={"temperature": 0.3},
     )
     content = response.message.content
+    print(content)
     return extract_tool_call(content)
 
 
